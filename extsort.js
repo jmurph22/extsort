@@ -22,7 +22,7 @@ function PrintHelp() {
 	console.log("Usage: " + __filename + " [options] <dir(s)> <file(s)>\n"
 		+ "	-R     | Be recursive.\n"
 		+ "	--help | Print this help.\n\n"
-		+ "Example: " + __filename + " /user/junk\n");
+		+ "Example: " + __filename + " /user/junk /mnt/stuff/things.txt\n");
 	process.exit(-1);
 }
 
