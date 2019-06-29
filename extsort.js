@@ -60,7 +60,7 @@ function ProcessPathArgs(current_path, basedir) {
 		return(basedir || recursive);
 	}
 
-	//Function to check the details of the arguemnt provided
+	//Function to check the details of the argument provided
 	fs.lstat(current_path).then(stats => {
 		//Take this logic if the path is determined to be a file.
 		if(stats.isFile()) {
