@@ -73,7 +73,7 @@ function ProcessPathArgs(current_path, basedir) {
 			fs.readdir(current_path).then(files => {
 				//Feed every file into the ProcessFile() function.
 				files.forEach(file => {
-					ProcessFile(path.join(current_path,file),false);
+					ProcessPathArgs(path.join(current_path,file),false);
 				});
 			}).catch(err => {
 				console.error(err);
