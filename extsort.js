@@ -44,11 +44,13 @@ function ProcessFile(full_file) {
 		var NewFileLocation = path.join(NewDir,BaseFileName);
 		
 		fs.ensureDir(NewDir).then(() => {
-			fs.move(full_file, NewFileLocation, { overwrite: true }).then(() => {
-				console.log('Moved ' + full_file + ' => ' + NewFileLocation);
-			}).catch(err => {
-				console.error(err);
-			});
+			if(full_file != NewFileLocation) {
+				fs.move(full_file, NewFileLocation, { overwrite: true }).then(() => {
+					console.log('Moved ' + full_file + ' => ' + NewFileLocation);
+				}).catch(err => {
+					console.error(err);
+				});
+			}
 		}).catch(err => { 
 			console.error(err);
 		});
