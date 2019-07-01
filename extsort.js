@@ -44,6 +44,7 @@ function ProcessFile(full_file) {
 		var NewFileLocation = path.join(NewDir,BaseFileName);
 		
 		fs.ensureDir(NewDir).then(() => {
+			//Ensure we aren't trying to rename a file to itself.
 			if(full_file != NewFileLocation) {
 				fs.move(full_file, NewFileLocation, { overwrite: true }).then(() => {
 					console.log('Moved ' + full_file + ' => ' + NewFileLocation);
@@ -89,6 +90,7 @@ function ProcessPathArgs(current_path, basedir) {
 }
 
 function ProcessArgs() {
+	//We use a set because it allows for only unique items.
 	var args = new Set(process.argv.slice(2));
 	
 	//If the help command was given at all, we just do help and quit.
