@@ -43,7 +43,12 @@ int PrintHelp(void)
 
 int main(int argc, char* argv[])
 {
-	ioapp::ProcessArgs extsort_ProcessArgs(argc,argv);
+	if(argc == 0)
+	{
+		return PrintHelp();
+	}
+
+	ioapp::ProcessArgs extsort_ProcessArgs(argc,argv,true,1);
 
 	for(const std::string &f : extsort_ProcessArgs.Flags)
 	{
